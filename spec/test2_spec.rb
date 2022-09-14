@@ -16,17 +16,18 @@ end
 RSpec.describe ".bonus method" do
   let(:member) { Member.new('normal') }
 
-  context "when member is silver rank" do
+  describe "when member is silver rank" do
     it 'should feedback 10% discount.' do
       member.rank = 'silver'
       expect(member.bonus).to eq(0.9)
     end
   end
 
-  context "when member is golden rank" do
+  describe "when member is golden rank" do
     it 'should feedback 20% discount.' do
       member.rank = 'golden'
       expect(member.bonus).to eq(0.8)
     end
   end
 end
+

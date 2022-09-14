@@ -1,19 +1,23 @@
 RSpec.describe "after_hook" do
-  let(:arr) { arr = [] }
+  # let(:arr) { arr = [] }
+  before do
+    @arr = []
+  end
 
   after "clear all" do
-    arr.clear
-    p arr
+    @arr = []
   end
 
   it "hook" do
-    arr << "hook"
-    p arr
-    arr.push("abc")
-    p arr
-    arr.unshift(123)
-    p arr
-    p arr.length
-    expect(arr.length).to eq(3)
+    @arr << "hook"
+    @arr.push("abc")
+    @arr.unshift(123)
+    expect(@arr.length).to eq(3)
+    p @arr
+  end
+
+  it "test" do
+    @arr << "test"
+    p @arr
   end
 end

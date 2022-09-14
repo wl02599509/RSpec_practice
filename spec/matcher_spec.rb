@@ -1,18 +1,16 @@
 RSpec.describe "same or different" do
-  let(:a) { "1234" }
-  let(:b) { "1234" }
-  let(:c) { 1234 }
-  let(:d) { 1234.0 }
-  let(:e) { c }
+  let(:a) { 1234 }
+  let(:b) { 1234.0 }
+
+  let(:c) { [1234] }
+  let(:f) { [1234.0] }
 
   it "should be the same" do
     expect(a).to eq(b)
-    expect(a).to eql(b)
-    expect(a).to equal(b)
-    expect(a).to be(b)
-    expect(e).to eq(c)
-    expect(e).to equal(c)
-    expect(d).to eq(c)
-    expect(d).to eql(c)
+    expect(a).not_to eql(b)
+
+    expect(c).to eq(f)
+    # expect(c).to eql(f)
+    expect(c).to equal(f)
   end
 end
